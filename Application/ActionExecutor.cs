@@ -245,17 +245,22 @@ namespace Application
 
         private Dictionary<string, By> GetBy()
         {
-            return new Dictionary<string, By>
-            {
-                { DomainConsts.ID, By.Id(_actualAction.Element) },
-                { DomainConsts.NAME, By.Name(_actualAction.Element) },
-                { DomainConsts.LINKTEXT, By.LinkText(_actualAction.Element) },
-                { DomainConsts.CLASSNAME, By.ClassName(_actualAction.Element) },
-                { DomainConsts.CSSSELECTOR, By.CssSelector(_actualAction.Element) },
-                { DomainConsts.PARTIALLINKTEXT, By.PartialLinkText(_actualAction.Element) },
-                { DomainConsts.TAGNAME, By.TagName(_actualAction.Element) },
-                { DomainConsts.XPATH, By.XPath(_actualAction.Element) }
-            };
+            if (_actualAction.FindMethod.Equals(DomainConsts.CLASSNAME))
+                return new Dictionary<string, By> 
+                { 
+                    { DomainConsts.CLASSNAME, By.ClassName(_actualAction.Element) } 
+                };
+            else
+                return new Dictionary<string, By> 
+                {
+                    { DomainConsts.ID, By.Id(_actualAction.Element) },
+                    { DomainConsts.NAME, By.Name(_actualAction.Element) },
+                    { DomainConsts.LINKTEXT, By.LinkText(_actualAction.Element) },
+                    { DomainConsts.CSSSELECTOR, By.CssSelector(_actualAction.Element) },
+                    { DomainConsts.PARTIALLINKTEXT, By.PartialLinkText(_actualAction.Element) },
+                    { DomainConsts.TAGNAME, By.TagName(_actualAction.Element) },
+                    { DomainConsts.XPATH, By.XPath(_actualAction.Element) }
+                };
         }
 
         private void SaveActionAndElement(IStepAction action, IWebElement element)
@@ -276,10 +281,7 @@ namespace Application
     #region Exceptions
     public class ElementNotFound : Exception
     {
-        public ElementNotFound(string element)
-        {
-            Console.WriteLine("Error: ElementNotFound: " + element);
-        }
+        public ElementNotFound(string element) : base("Error: ElementNotFound: " + element) { }
     }
 
     public class NotAbleToClick : Exception
