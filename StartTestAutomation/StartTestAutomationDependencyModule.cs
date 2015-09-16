@@ -1,9 +1,9 @@
-﻿using System.Reflection;
+using System.Reflection;
 using IoCNinja;
 
-namespace Application
+namespace StartTestAutomation
 {
-    public class ApplicationDependencyModule : IDependencyModule
+    public class StartTestAutomationDependencyModule : IDependencyModule
     {
         #region IDependencyModule Members
         public void ConfigureDependencies(IDependencyConfiguration config)
