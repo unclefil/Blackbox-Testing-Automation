@@ -13,7 +13,7 @@ namespace Application
 
         Dictionary<int, string> TagNames { get; }
 
-        Dictionary<int, string> InputType { get; }
+        Dictionary<int, string> InputTypes { get; }
 
         Dictionary<int, string> Screenshots { get; }
 
