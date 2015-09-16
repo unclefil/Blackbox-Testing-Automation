@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IoCNinja">
-      <HintPath>..\..\IoCNinjaDLLs\IoCNinja.dll</HintPath>
+    <Reference Include="IoCNinja, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Libs\IoCNinja.dll</HintPath>
     </Reference>
     <Reference Include="Selenium.WebDriverBackedSelenium">
       <HintPath>..\packages\Selenium.WebDriverBackedSelenium.2.47.0\lib\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>

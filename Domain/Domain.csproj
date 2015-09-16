@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IoCNinja">
-      <HintPath>..\..\..\Visual Studio 2013\Projects\IoCNinja\IoCNinja\bin\Release\IoCNinja.dll</HintPath>
+    <Reference Include="IoCNinja, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Libs\IoCNinja.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>

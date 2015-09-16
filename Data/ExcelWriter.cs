@@ -41,7 +41,7 @@ namespace Data
         private string _Browser { get; set; }
         #endregion variables
 
-        private void SaveTestCaseStatus(string browser, ITestCase testCase, string status)
+        public void SaveTestCaseStatus(string browser, ITestCase testCase, string status)
         {
             _Browser = browser;
 
@@ -54,7 +54,7 @@ namespace Data
             TearDown();
         }
 
-        private void SaveStepStatus(string browser, ITestCase testCase, ITestStep step)
+        public void SaveStepStatus(string browser, ITestCase testCase, ITestStep step)
         {
             _Browser = browser;
 
