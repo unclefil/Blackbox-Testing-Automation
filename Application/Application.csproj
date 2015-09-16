@@ -30,17 +30,60 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IoCNinja">
+      <HintPath>..\..\IoCNinjaDLLs\IoCNinja.dll</HintPath>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>..\packages\Selenium.WebDriverBackedSelenium.2.47.0\lib\net40\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>..\packages\Selenium.RC.2.47.0\lib\net40\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>..\packages\Selenium.WebDriver.2.47.0\lib\net40\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>..\packages\Selenium.Support.2.47.0\lib\net40\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ActionExecutor.cs" />
+    <Compile Include="ApplicationDependencyModule.cs" />
+    <Compile Include="ConfigValidator.cs" />
+    <Compile Include="DriverCreator.cs" />
+    <Compile Include="IDefect.cs" />
+    <Compile Include="IPresentation.cs" />
+    <Compile Include="IReports.cs" />
+    <Compile Include="IStartApplication.cs" />
+    <Compile Include="ITestExecutionGateway.cs" />
+    <Compile Include="ITestPlanGateway.cs" />
+    <Compile Include="ITestSetExecutor.cs" />
+    <Compile Include="MySetup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>MySetup.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenshotTaker.cs" />
+    <Compile Include="StartApplication.cs" />
+    <Compile Include="TestCaseExecutor.cs" />
+    <Compile Include="TestSetExecutor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{b99d1a1b-eaa6-4238-9062-aad0cdd2740b}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MySetup.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MySetup.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

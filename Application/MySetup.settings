@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Application" GeneratedClassName="MySetup">
+  <Profiles />
+  <Settings>
+    <Setting Name="IEDriverFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IEDriverServer_x64.2.47.0</Value>
+    </Setting>
+    <Setting Name="ChromeDriverFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">chromedriver_win32</Value>
+    </Setting>
+    <Setting Name="FFDriverFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ff-wires-0.3.0-windows</Value>
+    </Setting>
+    <Setting Name="TestSetxls_FileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SampleTestSet.xls</Value>
+    </Setting>
+    <Setting Name="DriversFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Drivers\</Value>
+    </Setting>
+    <Setting Name="TestDataFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\TestData\</Value>
+    </Setting>
+    <Setting Name="ReportsFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Reports\</Value>
+    </Setting>
+    <Setting Name="DefectsFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Defects\</Value>
+    </Setting>
+    <Setting Name="NameOfTestSetTab" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TestSet</Value>
+    </Setting>
+    <Setting Name="DefaultTimeout" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:05</Value>
+    </Setting>
+    <Setting Name="IsToRunInGoogleChrome" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsToRunInFirefox" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IsToRunInInternetExplorer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ElementNotFoundText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Element not found</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
