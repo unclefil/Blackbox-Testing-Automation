@@ -40,8 +40,8 @@ namespace Domain
         #endregion
 
         #region Commands depeding of Element and parameter that return value
-        public const string RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME = "RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME(ATTRIBUTENAME)";
-        public const string RETURN_CSSVALUE_BY_PROPERTYNAME = "RETURN_CSSVALUE_BY_PROPERTYNAME(PROPERTYNAME)";
+        public const string RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME = "RETURN_ATTRIBUTEVALUE(ATTRIBUTENAME)";
+        public const string RETURN_CSSVALUE_BY_PROPERTYNAME = "RETURN_CSSVALUE(PROPERTYNAME)";
         #endregion
 
         public static List<string> ReturningValueCommands = new List<string>
