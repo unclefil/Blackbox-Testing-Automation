@@ -50,9 +50,7 @@ namespace Data
 
         public void SetupExcel()
         {
-            _excelApp = new Excel.Application();
-
-            CheckIsExcelInstalled();
+            TryNewExcelApplication();
 
             _excelApp.DisplayAlerts = false;
 
@@ -62,6 +60,18 @@ namespace Data
 
             RowsCount = _excelRange.Rows.Count;
             ColumnsCount = _excelRange.Columns.Count;
+        }
+
+        private void TryNewExcelApplication()
+        {
+            try
+            {
+                _excelApp = new Excel.Application();
+            }
+            catch (Exception)
+            {
+                CheckIsExcelInstalled();
+            }
         }
 
         private Excel.Worksheet TryGetExcelTag()

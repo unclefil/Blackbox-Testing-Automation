@@ -182,9 +182,9 @@ namespace Presentation.View
             CheckDirectoryExists(AddBackSlash(txtDefectsFolder));
             CheckDirectoryExists(AddBackSlash(txtDriversFolder));
 
-            CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtChromeDriverFolder.Text);
-            CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtIExplorerDriverFolder.Text);
-            //CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtFirefoxDriverFolder.Text);
+            if (chkIsToRunInGoogleChrome.Checked) CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtChromeDriverFolder.Text);
+            if (chkIsToRunInFirefox.Checked) CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtFirefoxDriverFolder.Text);
+            if (chkIsToRunInInternetExplorer.Checked) CheckDirectoryExists(AddBackSlash(txtDriversFolder) + txtIExplorerDriverFolder.Text);
 
             CheckFileExists(AddBackSlash(txtTestDataFolder) + txtTestSetxls_FileName.Text);
 
