@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Domain;
+using IoCNinja;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -62,6 +63,18 @@ namespace Application
                 TryGoToUrl();
             else if (CommandIs(DomainConsts.CLOSE))
                 TryClose();
+            else if (CommandIs(DomainConsts.MESSAGEBOX))
+                TryMessageBox();
+            else if (CommandIs(DomainConsts.POPUP_JSALERT_ACCEPT))
+                TryPopupJSAlertAccept();
+            else if (CommandIs(DomainConsts.POPUP_JSCONFIRM_ACCEPT))
+                TryPopupJSConfirmAccept();
+            else if (CommandIs(DomainConsts.POPUP_JSCONFIRM_DISMISS))
+                TryPopupJSConfirmDismiss();
+            else if (CommandIs(DomainConsts.POPUP_JSPROMPT_SENDKEYS))
+                TryPopupJSPromptSendKeys();
+            else if (CommandIs(DomainConsts.POPUP_JSPROMPT_ACCEPT))
+                TryPopupJSPromptAccept();
         }
 
         private void TrySendKeys(IWebElement element)
@@ -129,6 +142,83 @@ namespace Application
             try
             {
                 _driver.Close();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryPopupJSAlertAccept()
+        {
+            try
+            {                
+                IAlert alert = _driver.SwitchTo().Alert();
+                alert.Accept();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryPopupJSConfirmAccept()
+        {
+            try
+            {
+                IAlert alert = _driver.SwitchTo().Alert();
+                alert.Accept();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryPopupJSConfirmDismiss()
+        {
+            try
+            {
+                IAlert alert = _driver.SwitchTo().Alert();
+                alert.Dismiss();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryPopupJSPromptSendKeys()
+        {
+            try
+            {
+                IAlert alert = _driver.SwitchTo().Alert();
+                alert.SendKeys(_actualAction.CommandParameter);
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryPopupJSPromptAccept()
+        {
+            try
+            {
+                IAlert alert = _driver.SwitchTo().Alert();
+                alert.Accept();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TryMessageBox()
+        {
+            try
+            {
+                IoC.Get<IPresentation>().ShowMessage(_actualAction.CommandParameter);
             }
             catch (Exception ex)
             {

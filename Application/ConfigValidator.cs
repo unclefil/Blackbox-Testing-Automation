@@ -11,7 +11,7 @@ namespace Application
 
         public static void CheckXLSFileExtension(string fileName)
         {
-            if (!fileName.EndsWith(".xls"))
+            if (!(fileName.EndsWith(".xls") || fileName.EndsWith(".xlsx")))
                 throw new FileHasInvalidFileExtensionUseXLS(fileName);
         }
     }
@@ -19,6 +19,6 @@ namespace Application
     public class FileHasInvalidFileExtensionUseXLS : Exception 
     {
         public FileHasInvalidFileExtensionUseXLS(string file) 
-            : base("Error: File must end with the extension '.xls'. Invalid Entry: " + file) { }
+            : base("Error: File must end with the extension '.xls' or '.xlsx'. Invalid Entry: " + file) { }
     }
 }

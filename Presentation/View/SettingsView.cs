@@ -162,7 +162,7 @@ namespace Presentation.View
         private string DoOpenXlsFile(string actualSafeFileName)
         {
             OpenFileDialog file = new OpenFileDialog();
-            file.Filter = "Excel XLS|*.xls";
+            file.Filter = "Excel XLS|*.xls*";
 
             if (file.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 return file.SafeFileName; // FileName = path, SafeFileName = fileName only

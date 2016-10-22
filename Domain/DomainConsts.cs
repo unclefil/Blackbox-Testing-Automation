@@ -19,6 +19,12 @@ namespace Domain
         #region Commands Without Element
         public const string GOTOURL = "GOTOURL(STRURL)";
         public const string CLOSE = "CLOSE()";
+        public const string POPUP_JSALERT_ACCEPT = "POPUP_JSALERT_ACCEPT()";
+        public const string POPUP_JSCONFIRM_ACCEPT = "POPUP_JSCONFIRM_ACCEPT()";
+        public const string POPUP_JSCONFIRM_DISMISS = "POPUP_JSCONFIRM_DISMISS()";
+        public const string POPUP_JSPROMPT_SENDKEYS = "POPUP_JSPROMPT_SENDKEYS(INPUTSTR)";
+        public const string POPUP_JSPROMPT_ACCEPT = "POPUP_JSPROMPT_ACCEPT()";
+        public const string MESSAGEBOX = "MESSAGEBOX(MESSAGE)";
         #endregion
 
         #region Commands depeding of Element only
@@ -59,6 +65,12 @@ namespace Domain
         {
             GOTOURL,
             CLOSE,
+            POPUP_JSALERT_ACCEPT,
+            POPUP_JSCONFIRM_ACCEPT,
+            POPUP_JSCONFIRM_DISMISS,
+            POPUP_JSPROMPT_SENDKEYS,
+            POPUP_JSPROMPT_ACCEPT,
+            MESSAGEBOX,
             CLICK,
             CLEAR,
             SUBMIT,
@@ -90,6 +102,8 @@ namespace Domain
         public static List<string> CommandsDependingOfParameter = new List<string>
         {
             GOTOURL,
+            POPUP_JSPROMPT_SENDKEYS,
+            MESSAGEBOX,
             SENDKEYS,
             RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME,
             RETURN_CSSVALUE_BY_PROPERTYNAME
