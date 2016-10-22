@@ -156,6 +156,10 @@ namespace Application
                 IAlert alert = _driver.SwitchTo().Alert();
                 alert.Accept();
             }
+            catch (NoAlertPresentException)
+            {
+                throw new NotAbleToExecuteAction("No Alert Present");
+            }
             catch (Exception ex)
             {
                 ThrowNotAbleToExecuteAction(ex);
