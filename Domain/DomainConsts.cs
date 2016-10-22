@@ -20,10 +20,13 @@ namespace Domain
         public const string GOTOURL = "GOTOURL(STRURL)";
         public const string CLOSE = "CLOSE()";
         public const string POPUP_JSALERT_ACCEPT = "POPUP_JSALERT_ACCEPT()";
+        public const string POPUP_JSALERT_GETTEXT = "POPUP_JSALERT_GETTEXT()";
         public const string POPUP_JSCONFIRM_ACCEPT = "POPUP_JSCONFIRM_ACCEPT()";
         public const string POPUP_JSCONFIRM_DISMISS = "POPUP_JSCONFIRM_DISMISS()";
+        public const string POPUP_JSCONFIRM_GETTEXT = "POPUP_JSCONFIRM_GETTEXT()";
         public const string POPUP_JSPROMPT_SENDKEYS = "POPUP_JSPROMPT_SENDKEYS(INPUTSTR)";
         public const string POPUP_JSPROMPT_ACCEPT = "POPUP_JSPROMPT_ACCEPT()";
+        public const string POPUP_JSPROMPT_GETTEXT = "POPUP_JSPROMPT_GETTEXT()";
         public const string MESSAGEBOX = "MESSAGEBOX(MESSAGE)";
         #endregion
 
@@ -50,26 +53,18 @@ namespace Domain
         public const string RETURN_CSSVALUE_BY_PROPERTYNAME = "RETURN_CSSVALUE(PROPERTYNAME)";
         #endregion
 
-        public static List<string> ReturningValueCommands = new List<string>
-        {
-            RETURN_ISDISPLAYED,
-            RETURN_ISENABLED,
-            RETURN_ISSELECTED,
-            RETURN_ELEMENTTAGNAME,
-            RETURN_ELEMENTINNERTEXT,
-            RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME,
-            RETURN_CSSVALUE_BY_PROPERTYNAME
-        };
-
         public static List<string> Commands = new List<string>
         {
             GOTOURL,
             CLOSE,
             POPUP_JSALERT_ACCEPT,
+            POPUP_JSALERT_GETTEXT,
             POPUP_JSCONFIRM_ACCEPT,
             POPUP_JSCONFIRM_DISMISS,
+            POPUP_JSCONFIRM_GETTEXT,
             POPUP_JSPROMPT_SENDKEYS,
             POPUP_JSPROMPT_ACCEPT,
+            POPUP_JSPROMPT_GETTEXT,
             MESSAGEBOX,
             CLICK,
             CLEAR,
@@ -117,7 +112,10 @@ namespace Domain
             RETURN_ELEMENTTAGNAME,
             RETURN_ELEMENTINNERTEXT,
             RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME,
-            RETURN_CSSVALUE_BY_PROPERTYNAME
+            RETURN_CSSVALUE_BY_PROPERTYNAME,
+            POPUP_JSALERT_GETTEXT,
+            POPUP_JSCONFIRM_GETTEXT,
+            POPUP_JSPROMPT_GETTEXT
         };
 
         #region FindMethods

@@ -79,21 +79,29 @@ namespace Application
             if (step.Action.IsElementDependent)
                 ExecuteElementDependentAction(tc, step);
             else
-                TryExecuteNonElementDependentAction(step);
+                TryExecuteNonElementDependentAction(tc, step);
 
             PrepareDefectIfAny(tc, step);
         }
 
         #region ExecuteStep - methods
-        private void TryExecuteNonElementDependentAction(ITestStep step)
+        private void TryExecuteNonElementDependentAction(ITestCase tc, ITestStep step)
         {
             try
             {
-                _executor.ExecuteNonElementDependentAction(step.Action);
+
+                if (step.Action.IsReturningValue)
+                    step.ActualResult = _executor.ExecuteNonElementDependentReadingAction(step.Action);
+                else
+                    _executor.ExecuteNonElementDependentAction(step.Action);                    
             }
             catch (NotAbleToExecuteAction ex)
             {
                 step.ActualResult = ex.Message;
+            }
+            finally
+            {
+                SaveActualResult(tc, step);
             }
         }
 

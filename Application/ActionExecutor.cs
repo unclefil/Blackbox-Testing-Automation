@@ -68,13 +68,13 @@ namespace Application
             else if (CommandIs(DomainConsts.POPUP_JSALERT_ACCEPT))
                 TryPopupJSAlertAccept();
             else if (CommandIs(DomainConsts.POPUP_JSCONFIRM_ACCEPT))
-                TryPopupJSConfirmAccept();
+                TryPopupJSAlertAccept();
             else if (CommandIs(DomainConsts.POPUP_JSCONFIRM_DISMISS))
-                TryPopupJSConfirmDismiss();
+                TryPopupJSAlertDismiss();
             else if (CommandIs(DomainConsts.POPUP_JSPROMPT_SENDKEYS))
-                TryPopupJSPromptSendKeys();
+                TryPopupJSAlertSendKeys();
             else if (CommandIs(DomainConsts.POPUP_JSPROMPT_ACCEPT))
-                TryPopupJSPromptAccept();
+                TryPopupJSAlertAccept();
         }
 
         private void TrySendKeys(IWebElement element)
@@ -162,20 +162,7 @@ namespace Application
             }
         }
 
-        private void TryPopupJSConfirmAccept()
-        {
-            try
-            {
-                IAlert alert = _driver.SwitchTo().Alert();
-                alert.Accept();
-            }
-            catch (Exception ex)
-            {
-                ThrowNotAbleToExecuteAction(ex);
-            }
-        }
-
-        private void TryPopupJSConfirmDismiss()
+        private void TryPopupJSAlertDismiss()
         {
             try
             {
@@ -188,25 +175,12 @@ namespace Application
             }
         }
 
-        private void TryPopupJSPromptSendKeys()
+        private void TryPopupJSAlertSendKeys()
         {
             try
             {
                 IAlert alert = _driver.SwitchTo().Alert();
                 alert.SendKeys(_actualAction.CommandParameter);
-            }
-            catch (Exception ex)
-            {
-                ThrowNotAbleToExecuteAction(ex);
-            }
-        }
-
-        private void TryPopupJSPromptAccept()
-        {
-            try
-            {
-                IAlert alert = _driver.SwitchTo().Alert();
-                alert.Accept();
             }
             catch (Exception ex)
             {
@@ -237,6 +211,13 @@ namespace Application
             _actualAction = action;
 
             return _actualAction.IsParameterized ? GetElementAttributeOrCssValue(element) : TryGetOneElementProperty(element);
+        }
+
+        public string ExecuteNonElementDependentReadingAction(IStepAction action)
+        {
+            _actualAction = action;
+
+            return GetPopupJSAlertGetText();
         }
 
         #region Reading Commands - private methods
@@ -294,6 +275,19 @@ namespace Application
                 { DomainConsts.RETURN_ELEMENTTAGNAME, element.TagName },
                 { DomainConsts.RETURN_ELEMENTINNERTEXT, element.Text }
             };
+        }
+
+        private string GetPopupJSAlertGetText()
+        {
+            try
+            {
+                IAlert alert = _driver.SwitchTo().Alert();
+                return alert.Text;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         #endregion Reading Commands - private methods
 
