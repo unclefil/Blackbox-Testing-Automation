@@ -27,6 +27,9 @@ namespace Domain
         public const string POPUP_JSPROMPT_SENDKEYS = "POPUP_JSPROMPT_SENDKEYS(INPUTSTR)";
         public const string POPUP_JSPROMPT_ACCEPT = "POPUP_JSPROMPT_ACCEPT()";
         public const string POPUP_JSPROMPT_GETTEXT = "POPUP_JSPROMPT_GETTEXT()";
+        public const string SWITCH_TO_WINDOW = "SWITCHTOWINDOW()";
+        public const string SWITCH_TO_DEFAULT_CONTENT = "SWITCHTODEFAULTCONTENT()";
+        public const string SWITCH_TO_PARENT_FRAME = "SWITCHTOPARENTFRAME()";
         public const string MESSAGEBOX = "MESSAGEBOX(MESSAGE)";
         #endregion
 
@@ -34,6 +37,7 @@ namespace Domain
         public const string CLICK = "CLICK()";
         public const string CLEAR = "CLEAR()";
         public const string SUBMIT = "SUBMIT()";
+        public const string SWITCH_TO_FRAME = "SWITCHTOFRAME()";        
         #endregion
 
         #region Commands depeding of Element and parameter
@@ -69,6 +73,10 @@ namespace Domain
             CLICK,
             CLEAR,
             SUBMIT,
+            SWITCH_TO_FRAME,
+            SWITCH_TO_WINDOW,
+            SWITCH_TO_DEFAULT_CONTENT,
+            SWITCH_TO_PARENT_FRAME,
             SENDKEYS,
             RETURN_ISDISPLAYED,
             RETURN_ISENABLED,
@@ -84,6 +92,7 @@ namespace Domain
             CLICK,
             CLEAR,
             SUBMIT,
+            SWITCH_TO_FRAME,
             SENDKEYS,
             RETURN_ISDISPLAYED,
             RETURN_ISENABLED,
@@ -98,6 +107,7 @@ namespace Domain
         {
             GOTOURL,
             POPUP_JSPROMPT_SENDKEYS,
+            SWITCH_TO_WINDOW,
             MESSAGEBOX,
             SENDKEYS,
             RETURN_ATTRIBUTEVALUE_BY_ATTRIBUTENAME,

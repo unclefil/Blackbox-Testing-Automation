@@ -55,6 +55,8 @@ namespace Application
                 TryClear(element);
             else if (CommandIs(DomainConsts.SUBMIT))
                 TrySubmit(element);
+            else if (CommandIs(DomainConsts.SWITCH_TO_FRAME))
+                TrySwitchToFrame(element);
         }
 
         private void ExecuteCommandNotDependentOfElement()
@@ -75,6 +77,12 @@ namespace Application
                 TryPopupJSAlertSendKeys();
             else if (CommandIs(DomainConsts.POPUP_JSPROMPT_ACCEPT))
                 TryPopupJSAlertAccept();
+            else if (CommandIs(DomainConsts.SWITCH_TO_WINDOW))
+                TrySwitchToWindow();
+            else if (CommandIs(DomainConsts.SWITCH_TO_DEFAULT_CONTENT))
+                TrySwitchToDefaultContent();
+            else if (CommandIs(DomainConsts.SWITCH_TO_PARENT_FRAME))
+                TrySwitchToParentFrame();
         }
 
         private void TrySendKeys(IWebElement element)
@@ -118,6 +126,18 @@ namespace Application
             try
             {
                 element.Submit();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TrySwitchToFrame(IWebElement element)
+        {
+            try
+            {
+                _driver.SwitchTo().Frame(element);
             }
             catch (Exception ex)
             {
@@ -185,6 +205,43 @@ namespace Application
             {
                 IAlert alert = _driver.SwitchTo().Alert();
                 alert.SendKeys(_actualAction.CommandParameter);
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TrySwitchToWindow()
+        {
+            try
+            {
+                _driver.SwitchTo().Window(_actualAction.CommandParameter);               
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+        private void TrySwitchToDefaultContent()
+        {
+            try
+            {
+                _driver.SwitchTo().DefaultContent();
+            }
+            catch (Exception ex)
+            {
+                ThrowNotAbleToExecuteAction(ex);
+            }
+        }
+
+
+        private void TrySwitchToParentFrame()
+        {
+            try
+            {
+                _driver.SwitchTo().ParentFrame();
             }
             catch (Exception ex)
             {
